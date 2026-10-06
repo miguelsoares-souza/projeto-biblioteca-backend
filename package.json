@@ -1,0 +1,10 @@
+{
+  "name": "sistema-biblioteca",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Projeto 1 de Programação Web Back-End — UTFPR",
+  "main": "app.js",
+  "scripts": { "start": "node app.js", "test": "node --test", "empacotar": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/empacotar.ps1" },
+  "engines": { "node": ">=22" },
+  "dependencies": { "express": "^5.1.0", "mongoose": "^8.19.0", "pg": "^8.16.3", "sequelize": "^6.37.7" }
+}
