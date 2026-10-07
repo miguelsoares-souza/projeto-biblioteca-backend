@@ -193,38 +193,4 @@ As rotas usam `try/catch`. Quando ocorre uma falha, o tratamento em `app.js` ret
 
 O arquivo `utils/log.js` registra data/hora, operação e mensagem em `logs/errors.log`, usando o módulo `fs`. Senhas e strings de conexão não são gravadas no log. Os textos dos cadastros também são escapados antes de serem exibidos no HTML.
 
-## Testes
 
-Para executar os testes automatizados:
-
-```powershell
-npm test
-```
-
-Os testes verificam as rotas HTTP, os formulários, as validações, as consultas e as regras de empréstimo com dados simulados em memória. A conexão e a persistência nos bancos reais precisam ser verificadas separadamente. O registro dos testes está em [docs/TESTES.md](docs/TESTES.md).
-
-Com os dois bancos configurados, siga esta sequência:
-
-1. Cadastre, liste e edite um usuário. Cadastre outro para testar a exclusão.
-2. Cadastre e edite livros. Exclua um livro sem vínculos.
-3. Cadastre pelo menos seis livros e teste pesquisa, ano mínimo, ordenação e paginação.
-4. Registre um empréstimo e confira se o livro ficou indisponível.
-5. Edite o empréstimo, informe a devolução e confira se o livro voltou a ficar disponível.
-6. Registre outro empréstimo e teste o cancelamento. Tente excluir um usuário ou livro que ainda tenha empréstimos vinculados.
-7. Cadastre uma avaliação, liste, altere nota e comentário e exclua a avaliação. Confira os documentos no Atlas.
-8. Teste dados inválidos e confira as mensagens e o arquivo de log.
-9. Reinicie a aplicação e verifique se os registros continuam salvos.
-
-A referência entre avaliação e livro é verificada pela aplicação, sem chave estrangeira ou transação entre os dois bancos. Alterações simultâneas nesses registros exigiriam controle adicional.
-
-## Entrega
-
-Para gerar o ZIP no Windows:
-
-```powershell
-npm run empacotar
-```
-
-O arquivo é criado na pasta `entrega`. O pacote inclui o código, a documentação, os arquivos de dependências, o exemplo de configuração e um log vazio. Não inclui `node_modules`, `config/local.js` nem os logs locais preenchidos.
-
-Depois de extrair o ZIP em outra máquina, instale as dependências, preencha a configuração local e execute a aplicação. O [roteiro de apresentação](docs/APRESENTACAO.md) reúne a sequência de demonstração e os arquivos usados para explicar o projeto.
